@@ -1,0 +1,126 @@
+html {
+	font-family: 'Nova Mono', monospace;
+	-webkit-text-size-adjust: 100%
+		-ms-text-size-adjust: 100%;
+	background: url('/static/images/Background.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	width:100%;
+	height:90%;
+	padding-top: 1%;
+}
+
+.nowrap {
+	white-space: nowrap;
+	max-width: 100%;
+}
+
+.container {
+	min-width: 1000px;
+}
+
+body {
+	margin: 0;
+	/*padding-bottom: 60%;*/
+	padding-left: 6%;
+	padding-right: 6%;
+	height: 100%;
+}
+
+form {
+	font-family: 'Nova Mono', monospace;
+	color: white;
+	font-size: 180%;
+	padding-left: 15%;
+	padding-right: 15%;
+}
+
+input {
+	font-family: 'Nova Mono', monospace;
+	font-size: 180%;
+	display: inline-block;
+}
+
+h1 {
+	color: white;
+	font-size: 2vw;
+	display: inline-block;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+h2 /*title*/{
+	color: #1D68DA;
+	font-size: 800%;
+	position: absolute;
+	top: 200px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+h3 /*Big Blue heading*/{
+	color: #1D68DA;
+	font-size: 500%;
+}
+
+h4 /*lightpurpley notes*/{
+	color: #B8D7F6;
+	margin-left: 20%;
+	margin-right: 20%;
+	text-align: left;
+}
+
+h5 {
+	font-size: 160%;
+	color: white;
+	text-align: center;
+}
+
+h6 {
+	font-size: 200%;
+	color:#64ADFF;
+	line-height: 10%;
+	text-align: center;
+}
+
+p {
+	color:white;
+	font-size: 130%;
+	margin-left: 20%;
+	margin-right: 20%;
+	text-align: left;
+	}
+
+.tab {
+	display: inline-block;
+	margin-left: 8%;
+}	
+
+a {
+	font-size: 200%;
+	border-radius: 13%;
+	line-height: 10%;
+}
+
+a:link {
+	color: white;
+}
+
+a:visited {
+        color: blue;
+}
+
+a:hover, a:active {
+        color: white;
+	background-color: gray;
+	opacity: .4;
+}
+
+img {
+	width: 20%;
+	height: 20%;
+	display:inline-block;
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, intial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Nova+Mono"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="{{ url_for('static',filename='css/AstralCTF.css') }}">
+<link rel="shortcut icon"
+	href="{{ url_for('static',filename='favicon.ico') }}">
+<title>{{ Title }}</title>
+</head>
+<body>
+	<table width="100%">
+		<tr>
+			<td>
+				<div class="dropdown">
+					<button onclick="dropDown()" class="dropbtn">Navigation</button>
+					<div id="myDropdown" class="dropdown-content">
+						{% for x in Page_List %} <a href={{x[1]}}>{{ x[0] }}</a> {% endfor %}
+					</div>
+				</div>
+			</td>
+			<td>
+				<div class="title" align="right">
+					<h1>AstralCTF</h1>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<h3>{{ Header }}</h3>
+	<center>
+		<div class="body">
+			<center>
+				<h6>About CTFs</h6>
+				<p>Computer Science skills, specifically the ability to write code, are essential to solving many complex problems. In many cases it is simply impossible to finish a task without some computer-related aid. Thus, Computer Science has become an integral part in today's society. </p>
+				<p>One might ask, "But how does this relate to AstralCTF, and what is a CTF?" CTFs are "Capture the Flag" events where teams work to solve problems relating to the field of computer science. While working towards a solution, competitors may find "Flags" which can be submitted as a solution to the given problem thus resulting in that team gaining points. For simplicity's sake, all flags in the AstralCTF competition will be denoted as follows: "[Flag: SOLUTION]." Your goal while competing in AstralCTF is simple: work with your team as efficiently as possible to gain the most points in the least amount of time.</p>				
+				<h6>Cryptography</h6>
+				<p>Cryptography is the use of secret codes and ciphers to hide sensitive information in otherwise meaningless data. Below we list a few forms of cryptography that may appear in AstralCTF.</p>
+				<h5>Caesar's Cipher</h5>
+				<p>Caesar's Cipher is one of the most basic forms of cryptography and was used by Augustus Caesar to keep the orders that his messengers carried unknown. Hiding messages with Caesar’s Cipher is simple; every letter in the alphabet is shifted three spaces to the left. For example, if the plaintext to be hidden was "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG" then the generated ciphertext would appear as "QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD." In this case we use "plaintext" to denote the information that needs to be kept secret with the "ciphertext" being the message in which the "plaintext" is hidden. Caesar's Cipher is just one form of Rotation Cipher. A Rotation Cipher is any cipher in which each character of the plaintext is rotated by X places in the alphabet to create the ciphertext, where Caesar's Cipher has a rotation of -3. However, in all languages there exists a "letter frequency" that relates to the occurance of any given letter in the given language. Thus, by comparing the letter frequency of the ciphertext to the letter frequency of the language in which it is written one can easily deduce what the rotation factor is. Not to mention there are only 25 different rotation factors thus testing all combinations is also logical. Rotation Ciphers should never be used to encrypt sensitive information.</p>
+				<h5>Substitution Cipher</h5>
+				<p>In a substitution cipher, each letter of the alphabet in the plaintext is assigned to another letter in no specific order to create the ciphertext. All Bs could be converted to Zs and all Zs to Bs to create the ciphertext. This method is safer than Rotation Ciphers as it is not easily brute-forced. However, examining letter frequency allows such ciphers to be solved quickly. Similar to Roation Ciphers, this method should not be used to encrypt sensitive imformation.</p>
+				<h5>Vigenere Cipher</h5>
+				<p>This cipher is a step up from a substitution cipher in that it needs a key to function. The key is combined with the plaintext to create the ciphertext. The length of the key does not matter too much as it will be repeated. For this example our key will be DOG. If our plaintext is: “Hello”; and our key is: “DOG”; when you combine the two, you will look at the “H” in “Hello”, and the “D” in “DOG”. Looking at the chart (using it like a multiplication chart), this yields: “K”. Keep combing the plaintext and the key (next will be “e” and “o”) and the ciphertext will eventually be revealed (“Ksroc”). This ciphertext is clearly stronger than that of a standard subsitituion cipher, yet is broken almost as easily, using a just more extensive algorithm of letter frequency.
+		</p>
+				<h5>Transposition Cipher</h5>
+				<p>In my opinion one of the least effective forms of encryption, is a cipher in which you take your sentence and essentially write it top down, determining how many columns you would like to have. This turns “Attack at dawn” into:
+		</p><!--fix formatting!!!!! -->
+				<table style="color: white;">
+					<tr>
+						<td>A</td>
+						<td>C</td>
+						<td>D</td>
+					</tr>
+					<tr>
+						<td>T</td>
+						<td>K</td>
+						<td>A</td>
+					</tr>
+					<tr>
+						<td>T</td>
+						<td>A</td>
+						<td>W</td>
+					</tr>
+					<tr>
+						<td>A</td>
+						<td>T</td>
+						<td>N</td>
+					</tr>
+				</table>
+				
+				<h4 style="color: #B8D7F6; text-align: center;">or:</h4>
+				<p><center style="color: white; font-size: 130%; margin-left: 250px; margin-right: 250px; text-align: center;">ACD TKA TAW ATN</center></p>  
+				
+				<h4 style="color: #B8D7F6; text-align: center;">or:</h4>
+				
+				<p><center style="color: white; font-size: 130%; margin-left: 250px; margin-right: 250px; text-align: center;">A . . . C . . . D . . . .<br> 
+			 . T . A . K . T . A . N .<br> 
+			 . . T . . . A . . . W . .</center></p>
+
+		<p>depending on which kind of transposition cipher you decide to use. Note: make sure you are using a monospaced font while dealing with this kind of encryption.
+		</p>
+				<h5>Bases</h5>
+				<p>There is a lot of what goes into the different bases, but at its bare bones, a base is just a way of counting. The standard base which everyone is familiar with is base10, or decimal. This is simply counting (0,1,2,3,4,5,6,7,8,9,10,11, …). We use this because it is simple and easy to remember and to do math in, but a machine cannot interpret things as we do, and thus different bases are used. Base2 is binary, and is a series of ones and zeros to represent larger numbers( 001 = 1, 010 = 2, 011 = 3, 100 = 4, …). Binary comes into hand because at the lowest level, electronics function based on whether a circuit is complete or incomplete, on or off, 1 or 0. Base16, or hexadecimal is another popular counting system. Hex is used because it is an easier way to represent both numbers and letters since they are assigned values according to an ASCII chart (hex is easier to turn into binary than decimal or letters). Hex counts as: 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f. A, b, c, d, e, f represent 10, 11, 12, 13, 14, 15 respectively. Base64 continues the pattern but uses A-Z, a-z, and 0-9. Base64 is easily identifiable by a “==” at the end of a string. The main use for base64 is sending data and making sure it isn’t modified, so it is an integrity check in a sense.
+		</p>
+				<h5>Advanced Encryption</h5>
+				<p>Encryption that I consider more advanced are the encryptions used recently in internet protocols and which Government organizations and NGOs use to keep their data safe. The encryptions that fall under this category are AES, SHA, MD5, MD7 and a few more. We will not be diving too deep into these but it is good to know that they exist. If ever these hashes are broken, then all passwords and data will be breached. The IoT depends on these hashing and encryption algorithms to perform their job.
+		</p>
+				<h6>Networking</h6>
+				<p>This guide will touch the basics of this so that an understanding can be formed about the basics, this guide will not discuss by any means all of networking. Basics of networking: data sent over the internet is sent as packets, as sending all the information at once would be too large. By breaking up larger data into smaller packets, data can be sent more efficiently say if one packet is lost rather than all of the data. There are two main protocols to sending data, TCP and UDP. TCP is more of a two-way conversation with acknowledgements, while UDP is more of a one-way data stream.</p>
+				<h5>Packet Captures</h5>
+				<p>A Packet Capture, or PCAP, is a way of analyzing the data sent or received over a network. There are several tools that will do this for you, such as Wireshark, Cloudshark, Tshark, and you can even script your own. PCAP files are useful because they reveal information about certain packets sent over the web that would be hard to retrieve otherwise. PCAP files unmask information such as the data fields, IP headers (will cover this later in the chapter), and more useful things you may find wanting to use later. For this competition I recommend using wireshark.
+		</p>
+				<h5>Internet Protocol (IP)</h5>
+				<p>IP is the protocol used to designate different host’s addresses that are using the network. There are 2 kinds of IPs that are in use today, IPv4 and IPv6. IPv4 addresses are running out, and so IPv6 is beginning to be used more commonly as the IoT world approaches us. IPv4 reveal information such as the location of the user.
+		</p>
+				<h5>Ports</h5>
+				<p>Another part of a packet that can be analyzed is the port that an application is using. Certain applications use assigned ports for communication. Here is a list of common ports taken from Packetlife.net:
+		</p>
+				<img src="{{ url_for('static',filename='images/ports.jpg') }}" style="width: 60%; height: 60%;"/>
+				<h5>NMAP</h5>
+				<p>NMAP is a common tool used to map networks. NMAP can trace an entire intranet and can simulate a packet being sent on the internet via traceroute. Because of how powerful this tool is, it is not to be used unless permission is given by network administrators. Parts of it are safe to use while other functions may compromise some security measures.</p>
+				<h6>Websites</h6>
+				<h5>HTML</h5>
+				<p>Hyper Text Markup Language(HTML) is the standard language which is used to code for websites. If HTML did not exist, all web pages would appear simply as a txt document. HTML is the “life” of a web page. HTML5 is the most recent version of HTML and aims to simplify the language so that it is more efficient, easier to pick up, and more complex in other ways. We do not have too much experience in this area but everything is a learning process amiright? HTML coding follows the standard conventions of coding so even if you have a smol grasp on the language itself, you can still pick up a few information from comments *cough* that may have been put there by the author.</p>
+				<h5>Javascript</h5>
+				<p>First mention: Java and Javascript are different languages, so be weary of the distinction. Javascript allows for a user-website interaction such as games you play in your browser. Javascript can be used for malicious purposes and so most web browsers have a policy wherein it is disabled by default unless you enable it.</p>
+				<!-- CSS -->
+				<h5>SQL</h5>
+				<p>SQL comes in many different versions but always performs the same function of being a database. SQL is relevant to this competition because of a vulnerability that exists in SQL sites that have not been properly pen-tested or secured. This vulnerability allows for certain entries(injects) to spit out information that the database may not want to spit out. Again, there are tools that make hacking all that much easier, and so teaching good security practices must be emphasized.</p>
+				<h6>Coding</h6>
+				<p>When it comes to telling a machine what to do, you can’t simply tell it to perform a task in slang english and expect it to understand you, unless it’s Siri or Cortana, then it will try it’s best. Otherwise, you must use some form of code. There are several layers of code, low-level encoding being something like binary, so on/off, and high level encoding which is closer to english. For the sake of learning about cybersecurity and not teaching a programming class, there will be comments in the code to help direct new users into understanding how the code functions.
+		</p>
+				<h5>Python</h5>
+				<p>Python is a high-level interpreter language.</p>
+				<h5>Java</h5>
+				<p>Java is a medium-level compiler language.</p>
+				<h6>Steganography</h6>
+				<p>Steg is a subject which you could try to explain to someone, but would be very hard to grasp until one actually tries it out for themselves. Steganography is the art of hiding data within the bytes of other PDFs. For example, the most common form of steg is taking an image, messing around with the bytes, and hiding text or programs inside of the data. This can also be done with audio, video, text, and essentially any other form of file. There are different methods to recovering this data. Hexdump, PDF-parser, converting the file to a .txt, and binwalk are the ways I go about solving these kinds of problems. Take this photo of a stegosaurus. What is displayed here is a bunch of hex telling the pixels what colors to be, making a picture appear before our eyes. If we were to convert this jpeg into a txt and mess around with the bytes, we could be able to hide out data inside of it. At a lower level of experience, the image could be showing various defects that are notable to the eye almost right away. However; at a higher level of expertise, it may be close to impossible to notice any difference in the image unless an analysis on the bytes is performed.</p>
+				<!--   <img src= -->
+				<h6>Command Line Interface (CLI)</h6>
+				<p>Graphical User Interface(GUI) is what most people are comfortable using. Both Windows and Apple use them, and they try to be as user-friendly as possible. Because GUIs are user-friendly, it can be easier to do simple tasks, but when it comes to more advanced tasks, can feel almost impossible. At first glance, the CLI can be a little bit intimidating and maybe hard to pick up, but as you use it more and more you acknowledge the power that comes with it and you enjoy it so much more. When learning command line it is important to know that everyone knows the basic commands, and when it’s time for the more advanced ones, manual pages and cheat sheets are made available, because it is simply too much for one person to memorize all the possible commands and combinations of them.</p>
+				<h5>Unix</h5>
+				<p>This portion of the reference guide will be used as a cheat sheet for linux commands. Most of these commands will be taken mainly from the Red Team Field Manual.</p>
+				<table style="color: white;">
+					<tr>
+						<th>Command</th>
+						<th>Use</th>
+					</tr>
+					<tr>
+						<td>ls</td>
+						<td>Lists all files in current directory</td>
+					</tr>
+					<tr>
+						<td>cd <desired-directory></td>
+						<td>Change directory to desired one</td>
+					</tr>
+					<tr>
+						<td>cd ..</td>
+						<td>Return to previous directory</td>
+					</tr>
+					<tr>
+						<td>pwd</td>
+						<td>Print working directory</td>
+					</tr>
+					<tr>
+						<td>ifconfig</td>
+						<td>Gives config for interface (networking)</td>
+					</tr>
+					<tr>
+						<td>netstat</td>
+						<td>Shows network connections</td>
+					</tr>
+					<tr>
+						<td>sudo</td>
+						<td>Run with elevated priviledge</td>
+					</tr>
+				</table>
+			</center>
+		</div>
+	</center>
+	<div class="footer">#JustACTF</div>
+</body>
+<script>
+	function dropDown() {
+		document.getElementById("myDropdown").classList.toggle("show");
+	}
+
+	window.onclick = function(event) {
+		if (!event.target.matches('.dropbtn')) {
+
+			var dropdowns = document.getElementsByClassName("dropdown-content");
+			var i;
+			for (i = 0; i < dropdowns.length; i++) {
+				var openDropdown = dropdowns[i];
+				if (openDropdown.classList.contains('show')) {
+					openDropdown.classList.remove('show');
+				}
+			}
+		}
+	}
+</script>
+</html>
+</html>

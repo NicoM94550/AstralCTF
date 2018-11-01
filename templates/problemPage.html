@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<center>
+			<meta charset="utf-8">
+			<link href="https://fonts.googleapis.com/css?family=Nova+Mono" rel="stylesheet">
+			<title>{{ Title }}</title>
+			<meta name="viewport" content="width=device-width, intial-scale=1">
+			<link rel="stylesheet" href="{{ url_for('static',filename='css/AstralCTF.css') }}">
+			<link rel="shortcut icon" href="{{ url_for('static',filename='favicon.ico') }}">
+		</center>
+	</head>
+	<body>
+		<table width="100%">
+			<tr>
+				<td>
+					<div class="dropdown">
+						<button onclick="dropDown()" class="dropbtn">Navigation</button>
+						<div id="myDropdown" class="dropdown-content">
+							{% for x in Page_List %}
+								<a href={{ x[1] }}>{{ x[0] }}</a>
+							{% endfor %}
+						</div>
+					</div>
+				</td>
+				<td>
+					<div class="title" align="right">
+						<h1>AstralCTF</h1>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<center>
+			<h3 style="font-size:5em;">
+				{{ Title }}
+			</h3>
+		</center>
+			<center>
+				<div class="body" style ="font-size:1em; style=border:10% solid black; padding-top: 2em; padding-bottom:2em; padding-left:2em; padding-right:2em; word-wrap:break-word; margin-left: 5%; margin-right: 5%; align: center">
+				{% if error %}
+					<center>
+						<p class="error">
+							{{ error }}
+						</p>
+					</center>
+				{% endif %}
+				<center>
+					<dl style="border:10% solid black; padding-top: 2em;padding-bottom: 3em; padding-left:5em; padding-right:5em; background-color:black; opacity:0.63; color:#FFFFFF; margin-left: 2%; margin-right: 2%; font-size:175%;">
+						<dd>
+							<p>
+								{{ ProblemText }}
+							</p>
+						</dd>
+						{% if hasFile == 1 %}
+							{% for x in range(0, numberOfFiles) %}
+								{% if fileDisplay[x] == '0' %}
+									<dd>
+										<img style="max-width: 100%; height:auto;" src="{{ url_for('static', filename = 'images/' + fileName[x])}}"/>
+									</dd>
+								{% else %}
+									<dd>
+										<a href="{{ url_for('static', filename = 'files/' + fileName[x])}}" download>
+											{{ fileName[x] }}
+										</a>
+									</dd>
+								{% endif %}
+							{% endfor %}
+						{% endif %}
+					</dl>
+				</center>
+		
+				<center>
+					<form method=post action="/problems/{{ Link }}">
+						<dl >
+							{% from "_formhelpers.html" import render_field %}
+							{{ render_field(form.teamHash) }}
+							{{ render_field(form.answer) }}
+						</dl>
+						<p><input style="border-radius: 1.5em; font-family: 'Nova Mono', monospace; font-size:.8em; color:#154879;"type=submit value=Submit></p>
+					</form>
+				</center>
+				{% if HasHint == 1 %}
+						<center><a href={{ HINT }} style="font-size:1.5em; color:white; background-color: transparent; text-decoration: underline;">Hint</a></center>
+				{% endif %}
+			</div>
+			</center>
+			<div class="footer">#JustACTF</div>
+		</center>
+	</body>
+	<script>
+		function dropDown() {
+			document.getElementById("myDropdown").classList.toggle("show");
+		}
+
+			window.onclick = function(event) {
+				if (!event.target.matches('.dropbtn')) {
+
+					var dropdowns = document.getElementsByClassName("dropdown-content");
+					var i;
+					for (i = 0; i < dropdowns.length; i++) {
+						var openDropdown = dropdowns[i];
+						if (openDropdown.classList.contains('show')) {
+							openDropdown.classList.remove('show');
+						}
+					}
+				}
+			}
+	</script>
+</html>

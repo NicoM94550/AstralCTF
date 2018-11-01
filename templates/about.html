@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, intial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Nova+Mono"
+		rel="stylesheet">
+	<link rel="stylesheet"
+		href="{{ url_for('static',filename='css/AstralCTF.css') }}">
+	<link rel="shortcut icon"
+		href="{{ url_for('static',filename='favicon.ico') }}">
+	<title>{{ Title }}</title>
+	</head>
+	<body>
+		<table width="100%">
+			<tr>
+				<td>
+					<div class="dropdown">
+						<button onclick="dropDown()" class="dropbtn">Navigation</button>
+						<div id="myDropdown" class="dropdown-content">
+							{% for x in Page_List %} <a href={{x[1]}}>{{ x[0] }}</a> {% endfor %}
+						</div>
+					</div>
+				</td>
+				<td>
+					<div class="title" align="right">
+						<h1>AstralCTF</h1>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<h3>{{ Header }}</h3>
+		<center>
+			<a href="https://www.linkedin.com/in/maximedowla/" style="border-radius: 0; background-color: transparent; opacity: 1;"><img src="{{ url_for('static',filename='images/maxime_dowla.jpg') }}"/></a>
+			<a href="https://www.linkedin.com/in/nicolas-macchioni-a52241123" style="border-radius: 0; background-color: transparent; opacity: 1;"><img src="{{ url_for('static',filename='images/nicolas_macchioni.jpg') }}"/></a>
+			<a href="https://www.linkedin.com/in/katherineseidl/" style="border-radius: 0; background-color: transparent; opacity: 1;"><img src="{{ url_for('static',filename='images/katherine_seidl.jpg') }}"/></a>
+			<div class="body">
+				<center>
+					<p>AstralCTF was conceived and developed by three high-school 
+			students (Maxime Dowla, Nicolas Macchioni, and Katie Seidl) who were inspired by 
+			other Capture The Flags (CTFs) they had partaken in. They felt like their creation 
+			would fulfill an important need and they wanted to spread cyber awareness and other 
+			aspects of cyber security for other high schoolers and others who may not have had 
+			prior access to these tools and information. The reason for the name “AstralCTF” 
+			was because they felt as though a “cloud” is not an accurate representation of the 
+			IoT, and the name should more represent that of a constellation since everything is 
+			connected more in that sense. Because they wanted to address all types of 
+			constellations or the vast majority of them, Astral felt more appropriate. The 
+			story is an original that they made because they felt like there needed to be some 
+			motivation to solve the problems, and so it has elements of both mystery and humor. 
+			</p>
+					<h4>Note: Anyone who is able to complete all advanced problems will 
+			have a chance to join the developing team as a way for further potential in areas 
+			such as creativity. This is not a guarantee. </h4>
+					<h6>Categories:</h6>
+					<p>The categories will unlock as you solve more problems, and these 
+			categories consist of Steg, Base, Ciphers, XOR, AES/SHA/MD5, Packet 
+			Tracer/networking, SQL injections, and more. These subjects pop up frequently in 
+			cyber and so these are practical problems and help train for future problems. They 
+			encourage the use of creative thinking as well as expect the student to do some of 
+			their own problem solving and self-learning. Basic information and hints are 
+			scattered throughout the problems to aid the learning of these topics. The 
+			categories and problems open up with the story as it develops, and the flow of the 
+			CTF will feel smooth. We attempt to make the flow vary, although if you connect the 
+			dots of the problems you probably won’t get a nice looking constellation as smol 
+			effort was made there. The reason for the “flow” is to make sure that the user is 
+			learning a breadth of techniques used in cyber security. </p>
+					<h6>Scoring System:</h6>
+					<p>Harder problems are worth more, and the next problem in that 
+			category doesn’t unlock until all problems of that tier have been solved. The 
+			amount of points a problem is worth is equal to its difficulty or time spent on it. 
+			Undecided whether it’s first to finish, most problems solved, or if this will 
+			simply be a personal thing people can do on their own time. </p>
+					<h4>ToS: In order to ensure that this competition can continue to 
+			be hosted, we ask only that you do not perform any unrelated malicious activity 
+			that you may learn in this competition. Several of the methods used here may be 
+			illegal and could cause serious legal issues. </h4>
+				</center>
+			</div>
+		</center>
+		<div class="footer">#JustACTF</div>
+	</body>
+	<script>
+		function dropDown() {
+			document.getElementById("myDropdown").classList.toggle("show");
+		}
+
+		window.onclick = function(event) {
+			if (!event.target.matches('.dropbtn')) {
+
+				var dropdowns = document.getElementsByClassName("dropdown-content");
+				var i;
+				for (i = 0; i < dropdowns.length; i++) {
+					var openDropdown = dropdowns[i];
+					if (openDropdown.classList.contains('show')) {
+						openDropdown.classList.remove('show');
+					}
+				}
+			}
+		}
+	</script>
+</html>

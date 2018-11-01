@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, intial-scale=1">
+		<link href="https://fonts.googleapis.com/css?family=Nova+Mono" rel="stylesheet">
+		<link rel="stylesheet" href="{{ url_for('static',filename='css/AstralCTF.css') }}">
+		<link rel="shortcut icon" href="{{ url_for('static',filename='favicon.ico') }}">
+		<title>{{ Title }}</title>
+	</head>
+	<body>
+		<table width="100%">	
+			<tr>
+				<td>
+					<div class="dropdown">
+					  <button onclick="dropDown()" class="dropbtn">Navigation</button>
+					  <div id="myDropdown" class="dropdown-content">
+						{% for x in Page_List %}
+							<a href={{ x[1] }}>{{ x[0] }}</a>
+						{% endfor %}
+					  </div>
+					</div>
+				</td>
+				<td>
+					<div class="title" align="right">
+						<h1>AstralCTF</h1>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div class="moto" align="center">
+			<h2 style="margin: .5em 0em .3em 0em; font-size: 700%">AstralCTF</h2>
+			<h3 style="color:white;font-size:200%;">By students, for students.</h3>
+			<h3 style="color:white;font-size:200%;">2017</h3>
+		</div>
+		<div class="footer">#JustACTF</div>
+	</body>
+<script>
+	function dropDown() {
+		document.getElementById("myDropdown").classList.toggle("show");
+	}
+
+	window.onclick = function(event) {
+	  if (!event.target.matches('.dropbtn')) {
+
+		var dropdowns = document.getElementsByClassName("dropdown-content");
+		var i;
+		for (i = 0; i < dropdowns.length; i++) {
+		  var openDropdown = dropdowns[i];
+		  if (openDropdown.classList.contains('show')) {
+			openDropdown.classList.remove('show');
+		  }
+		}
+	  }
+	}
+</script>
+</html>	
+<!--Thank you for participating in the first trial run for out CTF competition. If you would like to support us either through donations or by contributing different ideas or problems, feel free to contact Katie, Max, or Nico via the contact information provided in the "about" portion of our website. flag="we like constructive criticism"-->

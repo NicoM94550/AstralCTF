@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head><center>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Nova+Mono" rel="stylesheet">
+		<title>Add Hash</title>
+		<meta name="viewport" content="width=device-width, intial-scale=1">
+		<link rel="stylesheet" href="{{ url_for('static',filename='css/AstralCTF.css') }}">
+		<link rel="shortcut icon" href="{{ url_for('static',filename='favicon.ico') }}">
+		<a href={{ Page_List[0][1] }}><h1>{{ Page_List[0][0] }}</h1></a><span class="tab"></span><a href={{ Page_List[1][1] }}><h1>{{ Page_List[1][0] }}</h1></a><span class="tab"></span><a href={{ Page_List[2][1] }}><h1>{{ Page_List[2][0] }}</h1></a><span class="tab"></span><a href={{ Page_List[3][1] }}><h1>{{ Page_List[3][0] }}</h1></a><span class="tab"></span><a href={{ Page_List[4][1] }}><h1>{{ Page_List[4][0] }}</h1></a><span class="tab"></span><a href={{ Page_List[5][1] }}><h1>{{ Page_List[5][0] }}</h1></a>
+	</center></head>
+	<body>
+	{% if error %}
+		<p class="error">{{ error }}</p>
+	{% endif %}
+	{% from "_formhelpers.html" import render_field %}
+	<form method=post action="/admin/addhash">
+		<dl>
+			{{ render_field(form.hashtoadd) }}
+			{{ render_field(form.admin) }}
+		</dl>
+		<p><input type=submit value="Add Hash"></p>
+	</form>
+		<p style="text-align: center; padding-top: 20%;">#justACTF</p><p style="text-align: center;">Background image by Nicolas Macchioni</p>
+	</body>
+</html>

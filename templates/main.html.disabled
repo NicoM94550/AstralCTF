@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head><center>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Nova+Mono" rel="stylesheet">
+		<title>{{ TITLE }}</title>
+		<meta name="viewport" content="width=device-width, intial-scale=1">
+		<link rel="stylesheet" href="{{ url_for('static',filename='css/AstralCTF.css') }}">
+		<link rel="shortcut icon" href="{{ url_for('static',filename='favicon.ico') }}">
+		<a href={{ PAGE_LIST[0][1] }}><h1>{{ PAGE_LIST[0][0] }}</h1></a><span class="tab"></span><a href={{ PAGE_LIST[1][1] }}><h1>{{ PAGE_LIST[1][0] }}</h1></a><span class="tab"></span><a href={{ PAGE_LIST[2][1] }}><h1>{{ PAGE_LIST[2][0] }}</h1></a><span class="tab"></span><a href={{ PAGE_LIST[3][1] }}><h1>{{ PAGE_LIST[3][0] }}</h1></a><span class="tab"></span><a href={{ PAGE_LIST[4][1] }}><h1>{{ PAGE_LIST[4][0] }}</h1></a><span class="tab"></span>
+	</center></head>
+	<body><center>
+		<h2>{{ HEADER }}</h2>
+		<h2 style="font-size: 300%; padding-top: 11%;">By students, for students.</h2>
+		<p style="text-align: center; padding-top: 57.4%;">#justACTF</p><p style="text-align: center;">Background image by Nicolas Macchioni</p>
+	</center></body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<div class="container">
+	<head><center>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Nova+Mono" rel="stylesheet">
+		<title>{{ TITLE }}</title>
+		<meta name="viewport" content="width=device-width, intial-scale=1">
+		<link rel="stylesheet" href="{{ url_for('static',filename='css/AstralCTF.css') }}">
+		<link rel="shortcut icon" href="{{ url_for('static',filename='favicon.ico') }}">
+	</center></head>
+	<body>
+		 <table width="100%">
+                        <tr>
+                                <td>
+                                        <div class="dropdown">
+                                          <button onclick="dropDown()" class="dropbtn">Navigation</button>
+                                          <div id="myDropdown" class="dropdown-content">
+                                                {% for x in PAGE_LIST %}
+                                                        <a href={{ x[1] }}>{{ x[0] }}</a>
+                                                {% endfor %}
+                                          </div>
+                                        </div>
+                                </td>
+                                <td>
+                                        <div class="title" align="right">
+                                                <h1>AstralCTF</h1>
+                                        </div>
+                                </td>
+                        </tr>
+                </table>
+
+		<center>
+		<center><h1>{{ TITLE }}</h1><a href={{ HINT }}style="color:#154879; font-size:2em;">Hint</a></center>
+		{% if error %}
+		<center><p class="error">{{ error }}</p></center>
+		{% endif %}
+		{% from "_formhelpers.html" import render_field %}
+		<center><p style="border:10% solid black; padding-top: 2em; padding-bottom:3em; padding-left:3em; padding-right:3em; word-wrap:break-word; background-color:black; opacity:0.63; color:#FFFFFF; font-size: 1.2em; margin-left: 3em; margin-right: 3em;">{{ ProblemText }}</p></center>
+		<form method=post style="color:#154879; display:inline-block; font-size:1.6em; padding-left:.11em;padding-r>
+		<dl >
+     {{ render_field(form.teamHash) }}
+     {{ render_field(form.answer) }}
+		</dl>
+		<p><input style="border-radius: 1.5em; font-family: 'Nova Mono', monospace; font-size:.8em; color:#154879;"type=submit value=Submit></p>
+		</form>
+		<p style="text-align: center;">#justACTF</p>
+	</center></body>
+</div>
+<script>
+        function dropDown() {
+                document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                  var openDropdown = dropdowns[i];
+                  if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                  }
+                }
+          }
+        }
+</script>
+
+</html>
