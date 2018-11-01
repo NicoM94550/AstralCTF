@@ -1,0 +1,23 @@
+{
+	"name":"Sequence One"
+		,
+	"text":"1, 6, 11, 16, 21, ?, ?, ?, ?, ?"
+		,
+	"answer":180
+		,
+	"value":2
+		,
+	"category":"Sequences"
+		,
+	"problem_order":2
+		,
+	"hint_status":0
+		,
+	"hint":""
+		,
+	"file_status":0
+		,
+	"file_display":""
+		,
+	"file_name":""
+}

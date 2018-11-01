@@ -1,0 +1,23 @@
+{
+	"name":"Introduction to Sequences"
+		,
+	"text":"The following problems will focus on sequences. In this case, a sequence is any set or list of numbers that in one way or another relate to each other. Thus, if the relation between items in a sequence is known, the sequence can be extended to include an infinite amount of items. All sequence problems will follow the general format below. In each case you will see something similar to '1, 2, 3, 4, 5, ?, ?, ?, ?, ?' and it is your job to determine the next five items in the sequence. The answer will then be the sum of those five items. Good luck, and enjoy!"
+		,
+	"answer":40
+		,
+	"value":1
+		,
+	"category":"Sequences"
+		,
+	"problem_order":1
+		,
+	"hint_status":0
+		,
+	"hint":""
+		,
+	"file_status":1
+		,
+	"file_display":"0/0/"
+		,
+	"file_name":"sequenceGuideOne.jpg/sequenceGuideTwo.jpg/"
+}

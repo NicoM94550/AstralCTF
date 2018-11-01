@@ -1,0 +1,23 @@
+{
+	"name":"Sequence Two"
+		,
+	"text":"1, 6, 13, 22, 33, ?, ?, ?, ?, ?"
+		,
+	"answer":400
+		,
+	"value":3
+		,
+	"category":"Sequences"
+		,
+	"problem_order":3
+		,
+	"hint_status":0
+		,
+	"hint":""
+		,
+	"file_status":0
+		,
+	"file_display":""
+		,
+	"file_name":""
+}

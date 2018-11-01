@@ -1,0 +1,23 @@
+{
+	"name":"Sequence Nine"
+		,
+	"text":"1, 14, 16, 22, 33, ?, ?, ?, ?, ?"
+		,
+	"answer":659
+		,
+	"value":10
+		,
+	"category":"Sequences"
+		,
+	"problem_order":10
+		,
+	"hint_status":0
+		,
+	"hint":""
+		,
+	"file_status":0
+		,
+	"file_display":""
+		,
+	"file_name":""
+}

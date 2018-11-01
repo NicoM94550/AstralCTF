@@ -1,0 +1,23 @@
+{
+	"name":"Sequence Seven"
+		,
+	"text":"1, 3, 7, 14, 28, ?, ?, ?, ?, ?"
+		,
+	"answer":336
+		,
+	"value":8
+		,
+	"category":"Sequences"
+		,
+	"problem_order":8
+		,
+	"hint_status":0
+		,
+	"hint":""
+		,
+	"file_status":0
+		,
+	"file_display":""
+		,
+	"file_name":""
+}

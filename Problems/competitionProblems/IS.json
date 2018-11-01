@@ -1,0 +1,23 @@
+{
+	"name": "Intermediate Stego"
+		,
+	"text": "https://drive.google.com/open?id=0B68_8L9ok2EJNDhnVUxMUkI3bVk"
+		,
+	"answer": "potential"
+		,
+	"value": 3
+		,
+	"category": "Stego"
+		,
+	"problem_order": 2
+		,
+	"hint_status": 1
+		,
+	"hint": "binwalk -e"
+		,
+	"file_status": 1
+		,
+	"file_display": ""
+		,
+	"file_name": ""
+}

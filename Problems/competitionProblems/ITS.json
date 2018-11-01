@@ -1,0 +1,23 @@
+{
+	"name": "Intro to Stego"
+		,
+	"text": "https://drive.google.com/open?id=0B68_8L9ok2EJQ0ZOa0tUVjJPaW8"
+		,
+	"answer": "complicated"
+		,
+	"value": 2
+		,
+	"category": "Stego"
+		,
+	"problem_order": 1
+		,
+	"hint_status": 1
+		,
+	"hint": "You will need to explore the Hexdump command on a linux or use a hex editor otherwise"
+		,
+	"file_status": 1
+		,
+	"file_display": ""
+		,
+	"file_name": ""
+}

@@ -1,0 +1,23 @@
+{
+	"name":"Sequence Three"
+		,
+	"text":"1, 6, 12, 20, 31, ?, ?, ?, ?, ?"
+		,
+	"answer":495
+		,
+	"value":4
+		,
+	"category":"Sequences"
+		,
+	"problem_order":4
+		,
+	"hint_status":0
+		,
+	"hint":""
+		,
+	"file_status":0
+		,
+	"file_display":""
+		,
+	"file_name":""
+}

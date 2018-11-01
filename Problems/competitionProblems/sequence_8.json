@@ -1,0 +1,23 @@
+{
+	"name":"Sequence Eight"
+		,
+	"text":"1.0, 3.6666666666666665, 3.0, 2.3333333333333335, 1.666666666666667, ?, ?, ?, ?, ?"
+		,
+	"answer":-1.6666666666666639
+		,
+	"value":9
+		,
+	"category":"Sequences"
+		,
+	"problem_order":9
+		,
+	"hint_status":0
+		,
+	"hint":""
+		,
+	"file_status":0
+		,
+	"file_display":""
+		,
+	"file_name":""
+}
