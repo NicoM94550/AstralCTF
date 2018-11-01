@@ -1,0 +1,7 @@
+dbconnect: content_management, __init__
+Header(): All html pages
+activeProblems():
+problems():
+Error():
+getCategories(): activeProblems(), 
+problems(MySQL): activeProblems(), problems(), getCategories()
